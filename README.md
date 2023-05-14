@@ -58,6 +58,14 @@ module.exports = nextConfig;
 - `npx next export`
 - `mv ./out/_next ./out/next && cd ./out && grep -rli '_next' * | xargs -I@ sed -i '' 's|/_next|/next|g' @;`
 
+## reference
+
+- https://christianpenrod.com/blog/developing-browser-extensions-with-nextjs/
+- not used
+  - https://css-tricks.com/nextjs-chrome-extension-starter/
+  - https://swizec.com/blog/building-browser-extensions-with-nextjs/
+  - https://birdeatsbug.com/blog/build-a-chrome-extension-in-next-js-and-notion-api
+
 ---
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
