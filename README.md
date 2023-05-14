@@ -1,3 +1,65 @@
+# test-nextjs-chrome-extension
+
+- nextjs로 chrome-extension 개발 테스트
+
+## How to create a Chrome extension with Next.js
+
+- `npx create-next-app@latest --experimental`
+  - project name : test-nextjs-chrome-extension
+  - option은 알아서 하고싶은데로...
+    - Typescript : No
+    - ESLint : No
+    - Tailwind CSS : No
+    - src/ directory : No
+    - App Router : No
+    - import alias : No
+- `cd test-nextjs-chrome-extension`
+- `npm install --save-dev @types/chrome`
+- write `public/manifest.json`
+
+```
+{
+  "name": "Next.js Chrome Extension Test",
+  "description": "just for test",
+  "version": "1.0",
+  "manifest_version": 3,
+  "action": {
+    "default_title": "Next.js Browser Extension Demo",
+    "default_popup": "index.html"
+  }
+}
+```
+
+- add `images.unoptimized=true` to next.config.js
+
+```
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
+  images: {
+    unoptimized: true,
+  },
+};
+
+module.exports = nextConfig;
+```
+
+- modify `styles/globals.css`
+  - addd `html, body { max-width: 500 }`
+- `npx next build`
+- `npx next export`
+- `mv ./out/_next ./out/next && cd ./out && grep -rli '_next' * | xargs -I@ sed -i '' 's|/_next|/next|g' @;`
+- import `out` directory to chrome://extensions
+
+## development
+
+- develop something
+- `npx next build`
+- `npx next export`
+- `mv ./out/_next ./out/next && cd ./out && grep -rli '_next' * | xargs -I@ sed -i '' 's|/_next|/next|g' @;`
+
+---
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
